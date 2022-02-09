@@ -1,3 +1,4 @@
+import * as svn from 'node-svn-ultimate';
 import { IpcChannel } from './IpcChannel';
 import { IpcRequest } from './IpcRequest';
 
@@ -12,5 +13,12 @@ export default class SVNTestChannel implements IpcChannel<SVNTestProps> {
 
   handle(event: Electron.IpcMainEvent, request: SVNTestProps): void {
     console.log(this.name);
+
+    svn.util.getRevision(
+      'svn://192.168.35.59/test',
+      (err: any, revision: string) => {
+        console.log(`Head revision=${revision}`);
+      },
+    );
   }
 }
