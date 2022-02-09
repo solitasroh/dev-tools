@@ -31,7 +31,8 @@
     }
   },
   "globals": {
-    "JSX": true
+    "JSX": true,
+    "Electron": true
   },
   "rules": {
     // turn on errors for missing imports
